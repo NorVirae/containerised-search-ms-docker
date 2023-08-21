@@ -29,6 +29,31 @@ app.MapGet("/weatherforecast", async (string city, int rating) =>
         rating = 1;
     }
 
+
+    ISearchResponse<HotelEvent> result;
+
+    if (city is null)
+    {
+        result = await client.SearchAsync<HotelEvent>(s =>
+            s.Query(q =>
+                q.MatchAll()
+                &&
+                q.Range(r => r.Field(f => f.Rating).GreaterThanOrEquals(rating))
+                )
+            );
+    }
+    else
+    {
+        result = await client.SearchAsync<HotelEvent>(s =>
+            s.Query(q =>
+                q.Prefix(p => p.Field(f => f.CityName).Value(city).Value(city).CaseInsensitive())
+                &&
+                q.Range(r => r.Field(f => f.Rating).GreaterThanOrEquals(rating))
+                )
+            );
+    }
+
+    return result.Hits.Select(x => x.Source).ToList();
     
 });
 
