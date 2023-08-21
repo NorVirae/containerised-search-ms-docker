@@ -10,8 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
 
-app.MapGet("/weatherforecast", async (string city, int rating) =>
+app.MapGet("/search", async (string city, int rating) =>
 {
+    Console.WriteLine("Got In");
     var host = "https://05ba5b06face46848e24ff8ae7637179.us-central1.gcp.cloud.es.io";
     var userName = "elastic";
     var password = "RcMeOiw2kiUCBc7j08Hv1dDN";
@@ -53,8 +54,9 @@ app.MapGet("/weatherforecast", async (string city, int rating) =>
             );
     }
 
+    Console.WriteLine(result.Hits.ToString());
     return result.Hits.Select(x => x.Source).ToList();
-    
+
 });
 
 app.Run();

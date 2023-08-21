@@ -31,3 +31,5 @@ C:\Users\norbe\Documents\Projs\microservices\SearchAPi\obj\Debug\net7.0\refint\S
 C:\Users\norbe\Documents\Projs\microservices\SearchAPi\obj\Debug\net7.0\SearchAPi.pdb
 C:\Users\norbe\Documents\Projs\microservices\SearchAPi\obj\Debug\net7.0\SearchAPi.genruntimeconfig.cache
 C:\Users\norbe\Documents\Projs\microservices\SearchAPi\obj\Debug\net7.0\ref\SearchAPi.dll
+C:\Users\norbe\Documents\Projs\microservices\SearchAPi\bin\Debug\net7.0\Elasticsearch.Net.dll
+C:\Users\norbe\Documents\Projs\microservices\SearchAPi\bin\Debug\net7.0\Nest.dll
