@@ -1,44 +1,36 @@
+using Nest;
+using SearchAPi.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
-app.UseHttpsRedirection();
-
-var summaries = new[]
+app.MapGet("/weatherforecast", async (string city, int rating) =>
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+    var host = "https://05ba5b06face46848e24ff8ae7637179.us-central1.gcp.cloud.es.io";
+    var userName = "elastic";
+    var password = "RcMeOiw2kiUCBc7j08Hv1dDN";
+    var indexName = "event";
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+    var conSett = new ConnectionSettings(new Uri(host));
+    conSett.BasicAuthentication(userName, password);
+    conSett.DefaultIndex(indexName);
+    conSett.DefaultMappingFor<HotelEvent>(m => m.IdProperty(p => p.id));
+
+    var client = new ElasticClient(conSett);
+
+    if (rating == null)
+    {
+        rating = 1;
+    }
+
+    
+});
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
