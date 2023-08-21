@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "Z3r0JM8XkYXinBJWHs+F8BCpbqy9UjSHYzmYrzWOPoUXlj5DcZ1/e99K7D3VaHZyJJGqUo55Wo41xSZ1m67CAQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\norbe\\Documents\\Projs\\microservices\\SearchAPi\\SearchAPi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\norbe\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.5\\microsoft.aspnetcore.openapi.7.0.5.nupkg.sha512",
+    "C:\\Users\\norbe\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\norbe\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\norbe\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\norbe\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\norbe\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\norbe\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
